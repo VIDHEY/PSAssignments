@@ -1,0 +1,65 @@
+// created database
+ use mongotest  
+
+
+
+// created employee collection
+ db.createCollection("employee")  
+
+
+
+// adding data into employee collection
+
+ db.employee.insertOne({  "fname":"naresh",  "salary":[{"month":"jan","amount":10000},{"month":"feb","amount":10000},{"month":"march","amount":20000},{"month":"apr","amount":20000},{"month":"may","amount":10000}],"city":"mumbai"  }
+
+ db.employee.insertOne({  "fname":"raj",  "salary":[{"month":"jan","amount":20000},{"month":"feb","amount":20000},{"month":"march","amount":20000},{"month":"apr","amount":20000},{"month":"may","amount":20000}],"city":"mumbai"  })
+
+ db.employee.insertOne({  "fname":"rachit",  "salary":[{"month":"jan","amount":20000},{"month":"feb","amount":40000},{"month":"march","amount":30000},{"month":"apr","amount":20000},{"month":"may","amount":20000}],"city":"chennai"  })
+
+
+
+// display all documents in the employee collection
+ db.employee.find().pretty()   
+
+
+
+// display all docs with fname and _id in the employee collection
+ db.employee.find({},{"fname": 1}).pretty()
+
+
+
+// display all fields except _id in the employee collection
+ db.employee.find({},{"_id": 0}).pretty()
+
+
+
+// display first 5 employee
+ db.employee.find().limit(5).pretty()
+
+
+// display next 5 employees after skipping first 5 employees
+ db.employee.find().limit(5).skip(5).pretty()
+
+
+
+//find employee with city gurgaon
+ db.employee.find({"city":"gurgaon"}).pretty()
+
+
+
+// find employee with Jan month's salary less than 20000
+ db.employee.find({"salary.month":"jan"} && {"salary.amount": {$lt:20000}}).pretty()
+
+
+
+// find employee with Jan month's salary less than 20000 and city gurgaon
+
+ db.employee.find({"salary.month":"jan"} && {"salary.amount": {$lt:20000}} && {"city":"gurgaon"}).pretty()
+
+
+
+// count the number of employees in the gurgaon city
+ db.employee.count({city:"gurgaon"})
+
+
+// find the total salary of january month of all the employees

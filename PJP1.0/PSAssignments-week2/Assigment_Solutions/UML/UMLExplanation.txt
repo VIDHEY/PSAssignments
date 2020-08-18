@@ -1,0 +1,46 @@
+*	Class Diagram
+
+- there are total 4 classes in the system. Customer,Order,Special Order,NormalOrder.
+- Special Order and Normal Order are children classes of Order.
+- Customer are having name and location field.
+- Order class are having date and number fields same for SpecialOrder and NormalOrder.
+- Customer class are having sendOrder() and receiveOrder() methods.
+- Order class are having confirm() and close() methods.
+- Special Order are having same methods as Order addition to it dispatch() is there.
+- Normal order are having same methods as SpecialOrder plus receilve() method.
+- here, there is 1 to n relationship is there between Customer and Order. means one customer can place multiple orders.
+
+
+
+
+*	Sequence Diagram
+
+- This sequence diagram represents an order namagement system.
+- In this sequence diagram 3 types of objects are involved Customer,Order and SpecialOrder or NormalOrder.
+- It initializes with customer sends the order, after that order is confirmed by the system upon receiving it.
+- after order is confirmed it is dispatched.
+- customer will receive the confirmation on the window showing order information.
+- here, sendOrder(), confirm() and dispatch() are the methods executing during the timeline in the order given.
+
+
+
+*	Usecase Diagram
+
+- It shows the usecase diagram of an order management system.
+- here actor is customer who is interacting with system causing activation of usecase.
+- Customer interacts with the system by Order functionality.
+- customer places the order.
+- Specialorder and Normalorder are having extends relationship with Order. which means the may or maynot be included/useful during the order functionality.
+
+
+
+*	Activity Diagram
+
+- It shows the activity diagram of an order management system.
+- it shows the whole process of order placing in the system.
+- it starts with customer sending an order request.
+- system confirms the order receipt and check what type of order is received whether it is Normal or Special order.
+- after confirming that it confirm the order and order is dispathced.
+- process is terminated.
+
+

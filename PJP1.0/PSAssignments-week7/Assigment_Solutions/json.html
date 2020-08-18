@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<title>JSON Example</title>
+</head>
+<body>
+
+<div class="container" style="padding: 10% 15%;">
+	<div id="findEmp">
+		<label for="fname"><h4>Search Employee (with Firstname)</h4></label>
+		<input type="text" name="fname" id="fname"><button id="search">Search</button>
+
+		<br>
+		<div id="opSearch"></div>
+	</div>
+	<br>
+
+	<button id="display">Show Employee Data</button><br><br>
+	<div id="tabData">
+		
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	
+	var text = '{ "employees" : [{"firstName":"Raj","lastName":"Joshi"},{"firstName":"Divyesh","lastName":"Sharma"},{"firstName":"Rakesh","lastName":"Soni"}]}';
+
+	var btn1 = document.getElementById('display');
+	var btn2 = document.getElementById('search');
+	btn1.addEventListener("click",showData);
+	btn2.addEventListener("click",searchEmp);
+	
+
+	function showData()
+	{
+		var tabArea = document.getElementById("tabData");
+		tabArea.innerHTML = '<table id="employeesData" border="1">'+
+							'<tr>'+
+								'<th>FirstName</th>'+
+								'<th>LastName</th>'+
+							'</tr>'+
+							'</table>';
+		var table = document.getElementById("employeesData");
+		var obj = JSON.parse(text);
+		for(i in obj.employees)
+		{
+			//alert(obj.employees[i].firstName)
+			var row = table.insertRow(-1);
+			var cell1 = row.insertCell(0);
+			var cell2 = row.insertCell(1);
+			cell1.innerHTML = obj.employees[i].firstName;
+			cell2.innerHTML = obj.employees[i].lastName;
+		}
+	}
+	function searchEmp()
+	{
+		var fname = document.getElementById("fname").value;
+		var obj = JSON.parse(text);
+
+		var content = "No Employee Found With this name!!";
+		for(i in obj.employees)
+		{
+			//alert(obj.employees[i].firstName)
+			if(obj.employees[i].firstName == fname)
+			{
+				content = "<h4>FirstName: </h4>" + obj.employees[i].firstName + "<br><h4> LastName: </h4>" + obj.employees[i].lastName;
+				break;
+			}
+		}
+		document.getElementById("opSearch").innerHTML = content;
+	}
+	
+</script>
+</body>
+</html>

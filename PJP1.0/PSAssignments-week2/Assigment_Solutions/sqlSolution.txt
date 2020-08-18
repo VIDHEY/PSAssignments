@@ -1,0 +1,85 @@
+1)	Write a query which displays the module code and the duration for modules whose duration is less than 6.
+
+->	select modulecode from modules where duration<6;
+
+
+2) Write a query which will display the BATCHCODE, TRAINERID, COURSECODE, STARTDATE, CAPACITY 
+and BATCHSTRENGTH of the batches handled by the trainer KRISHNAN.
+
+->	select t.trainername,b.coursecode,b.trainerid,b.coursecode,b.startdate,b.capacity,b.batchstrength from batches as b join trainers as t on t.trainerid = b.trainerid where trainername = 'KRISHNAN';
+
+
+3)	Write a query which displays all the module names of the course code 100.
+
+->	select cm.modulecode,m.modulename from courses as c join courseandmodules as cm on c.coursecode = cm.coursecode join modules as m on m.modulecode = cm.modulecode where c.coursecode = 100;
+
+							or
+
+->	select modulename from modules where modulecode in (select modulecode from courseandmodules where coursecode = 100);
+
+
+4)
+	
+
+5)	Write a query which will display the number of modules present in the course code 100. 
+
+->	select COUNT(m.modulename) as NumberofModules from courses as c join courseandmodules as cm on c.coursecode = cm.coursecode join modules as m on m.modulecode = cm.modulecode where c.coursecode = 100;
+
+
+6)	Write a query which will display all the course code and the number of modules present in that particular course.
+
+->	select c.coursecode, COUNT(m.modulename) as NumberofModules from courses as c join courseandmodules as cm on c.coursecode = cm.coursecode join modules as m on m.modulecode = cm.modulecode group by c.coursecode order by c.coursecode;
+
+
+7)	Write a query which will display the course title and fees which has the maximum fees.
+	
+->	select title,fees from courses order by fees desc limit 1;
+
+
+8)	Write a query which will display the student id, student name, batch code, place and phone number of the students who belongs to Batch '3001'.
+
+->	select * from students where batchcode=3001;
+
+
+
+9)	Write a Query which will display the student ID, Student name, Batch code, place and phone number who are from CHENNAI.
+	
+->	select * from students where place='CHENNAI';
+
+
+
+10)	Write a query which displays the total number of modules which has less than 6 days duration.display total number of modules with'LESSTHANSIXDAYS' as alias. 
+
+->	select COUNT(*) as MODULES_LESSTHANSIXDAYS from modules where duration<6;
+
+
+11)	Write a query to display the batch code, course title, start date of the batches for the month of May and year 2012.
+
+->	select b.batchcode,c.title,b.startdate from batches as b join courses as c on b.coursecode=c.coursecode where b.startdate between '20120501' and '20120531';
+
+
+
+12)	Write a query to display courses code, course title, course fees of the courses for which no batches/training has been planned in the month of January and year 2012.
+
+->	select c.coursecode,c.title,c.fees from courses as c join batches as b on c.coursecode=b.coursecode where startdate not between '20120101' and '20120131';
+
+
+
+13)	Write a query which displays the names of all the modules of the course titled 'Oracle DBA'.
+
+->	select m.modulename from courses c join courseandmodules cm on c.coursecode=cm.coursecode join modules m on cm.modulecode=m.modulecode where c.title='Oracle DBA';
+
+
+
+14)	Write a Query which displays the student ID, Student name, Batch code, place and phone number of the student's who took training from CHENNAI in the year 2012.
+	
+->	select s.studentid,s.studentname,s.batchcode,s.place,s.phone from students s join batches b on s.batchcode=b.batchcode where s.place='CHENNAI' and b.startdate between '20120101' and '20121231';
+
+
+
+15)	Write a query which will display the student id, student names who are enrolled for the course code 200.
+	
+->	select s.studentid,s.studentname from students s join batches b on s.batchcode=b.batchcode where b.coursecode=200;
+
+
+
