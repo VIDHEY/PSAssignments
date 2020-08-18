@@ -1,0 +1,22 @@
+1) git init
+--- added one file ----
+    git add .
+    git commit -m "Init Commit"
+    git status
+2)
+    git remote add origin "Github remote repo url"
+    git push origin master
+
+3)
+    git branch dev
+    git branch QA
+    git branch feature
+
+4)
+    git checkout dev
+--- added one file ----
+    git add .
+    git commit - m "changes in dev branch"
+    git push origin dev
+
+    
