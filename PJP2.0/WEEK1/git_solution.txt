@@ -1,0 +1,68 @@
+*Basic Usage Using CLI
+
+1) Setup a local repository
+    git init
+--- added one file ----
+    git add .
+    git commit -m "Init Commit"
+    git status
+
+2) Setup a Remote Repository
+    git remote add origin "Github remote repo url"
+    git push origin master
+
+3) Create local branches
+    git branch dev
+    git branch QA
+    git branch feature
+
+4) Create Remote Branches
+    git checkout dev
+    git push origin dev
+
+    git checkout feature
+    git push origin feature
+
+5) Check-in, Stage, Commit, Push files into feature branch
+    git checkout feature
+--- added one file ----
+    git add .
+    git commit - m "changes in feature branch"
+    git push origin feature
+
+6) Crate Pull Request from Feature Branch to Dev Branch
+
+7) checkout latest code from remote branch to local branch
+    git checkout feature
+    git pull origin feature
+
+8) Ensure the code is in sync
+    git pull/fetch
+
+
+* On the ground day to day scenario
+1) Reset/Revert one or more files to the previous state
+    -- added myinfo file ---
+    
+    -- added "My Name Is Vidhey."
+    git add .
+    git commit -m "added name"
+    
+    -- added "I am living in India."
+    git add .
+    git commit -m "added country info"
+
+    git log
+    -- display 2 commits --
+
+    -- revert back to added name commit --
+    git revert <<commit-id>>
+
+2) Rebasing 
+    git init
+    git branch feature // base branch master
+
+    --- added one file to master----
+    git checkout feature
+    --- file won't be visible --- 
+    git rebase master
