@@ -2,10 +2,10 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  0.099 s
-[INFO] Finished at: 2020-08-22T16:19:43+05:30
+[INFO] Total time:  0.136 s
+[INFO] Finished at: 2020-08-23T12:15:53+05:30
 [INFO] ------------------------------------------------------------------------
-[ERROR] The goal you specified requires a project to execute but there is no POM in this directory (E:\Dev_coding_folder\PS_PJP2_assignments\PSAssignments\PJP2.0\WEEK2). Please verify you invoked Maven from the correct directory. -> [Help 1]
+[ERROR] The goal you specified requires a project to execute but there is no POM in this directory (E:\Dev_coding_folder\PS_PJP2_assignments\PSAssignments\PJP2.0\WEEK2\Maven_assignment). Please verify you invoked Maven from the correct directory. -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.
