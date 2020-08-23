@@ -1,0 +1,2 @@
+cd ./DemoMavenProject
+eval mvn -o clean install

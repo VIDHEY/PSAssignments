@@ -1,0 +1,1 @@
+eval mvn clean install -o --log-file log2.txt

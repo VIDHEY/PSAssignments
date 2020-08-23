@@ -1,0 +1,41 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------< org.apache.maven:standalone-pom >-------------------
+[INFO] Building Maven Stub Project (No POM) 1
+[INFO] --------------------------------[ pom ]---------------------------------
+[INFO] 
+[INFO] --- maven-help-plugin:3.2.0:describe (default-cli) @ standalone-pom ---
+[INFO] 'install' is a phase corresponding to this plugin:
+org.apache.maven.plugins:maven-install-plugin:2.4:install
+
+It is a part of the lifecycle for the POM packaging 'pom'. This lifecycle includes the following phases:
+* validate: Not defined
+* initialize: Not defined
+* generate-sources: Not defined
+* process-sources: Not defined
+* generate-resources: Not defined
+* process-resources: Not defined
+* compile: Not defined
+* process-classes: Not defined
+* generate-test-sources: Not defined
+* process-test-sources: Not defined
+* generate-test-resources: Not defined
+* process-test-resources: Not defined
+* test-compile: Not defined
+* process-test-classes: Not defined
+* test: Not defined
+* prepare-package: Not defined
+* package: Not defined
+* pre-integration-test: Not defined
+* integration-test: Not defined
+* post-integration-test: Not defined
+* verify: Not defined
+* install: org.apache.maven.plugins:maven-install-plugin:2.4:install
+* deploy: org.apache.maven.plugins:maven-deploy-plugin:2.7:deploy
+
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.673 s
+[INFO] Finished at: 2020-08-22T16:18:44+05:30
+[INFO] ------------------------------------------------------------------------

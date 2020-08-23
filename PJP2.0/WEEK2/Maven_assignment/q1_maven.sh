@@ -1,0 +1,1 @@
+eval mvn help:describe -Dcmd=install --log-file log1.txt
