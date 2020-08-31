@@ -1,0 +1,16 @@
+.ipForm{
+	font-size: 25px;
+	padding: 10px;
+}
+.ipField
+{
+	margin:15px;
+}
+input{
+	font-size:20px;
+	padding: 10px;
+	width: 200px;
+}
+#resp{
+	font-size:30px;
+}
