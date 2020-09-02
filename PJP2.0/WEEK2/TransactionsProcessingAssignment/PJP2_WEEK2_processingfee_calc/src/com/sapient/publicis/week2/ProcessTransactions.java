@@ -18,16 +18,15 @@ public class ProcessTransactions {
 
 	private static void calcProcessingFee(Transaction tr) {
 		if (tr.getPriority() == true)
-			tr.setProcessing_fee(500);
+			tr.setProcessing_fee(500.0);
 		else if (tr.getTr_type().equalsIgnoreCase("Sell") || tr.getTr_type().equalsIgnoreCase("Withdraw"))
-			tr.setProcessing_fee(100);
+			tr.setProcessing_fee(100.0);
 		else
-			tr.setProcessing_fee(50);
+			tr.setProcessing_fee(50.0);
 	}
 
 	private static void calcIntraDayTransFees(List<Transaction> transactions) {
-		HashSet<Integer> intraDayTransIds = findIntraDayTrans(transactions);
-
+		HashSet<String> intraDayTransIds = findIntraDayTrans(transactions);
 		for (Transaction trans : transactions) {
 			if (intraDayTransIds.contains(trans.getTr_id())) {
 				trans.setProcessing_fee(trans.getProcessing_fee() + 10);
@@ -37,39 +36,49 @@ public class ProcessTransactions {
 
 	}
 
-	private static HashSet<Integer> findIntraDayTrans(List<Transaction> transactions) {
-		HashSet<Integer> buySellTransIds = new HashSet<Integer>();
+	private static HashSet<String> findIntraDayTrans(List<Transaction> transactions) {
+		HashSet<String> buySellTransIds = new HashSet<String>();
 
-		Map<String, Integer> buySellTrans = new HashMap<String, Integer>();
+		Map<String, String> buySellTrans = new HashMap<String, String>();
 
 		for (Transaction tr : transactions) {
-			String key = String.valueOf(tr.getClient_id()) + "_" + String.valueOf(tr.getSecurity_id()) + "_"
-					+ String.valueOf(tr.getDate());
-
-			if (tr.getTr_type().contains("Buy")) {
+			String key = "";
+			
+			if (tr.getTr_type().equalsIgnoreCase("buy")) {
+				key = tr.getClient_id() + "_" + tr.getSecurity_id() + "_"
+						+ String.valueOf(tr.getDate());
 				String findKey = key + "_Sell";
 
 				if (buySellTrans.containsKey(findKey)) {
-					int sellTransId = buySellTrans.get(findKey);
-					int buyTransId = tr.getTr_id();
+					String sellTransId = buySellTrans.get(findKey);
+					String buyTransId = tr.getTr_id();
 
 					buySellTransIds.add(sellTransId);
 					buySellTransIds.add(buyTransId);
 					buySellTrans.remove(findKey);
+
+					System.out.println("Buy Id:- " + buyTransId);
+					System.out.println("Sell Id:- " + sellTransId);
 				} else {
 					key += "_Buy";
 					buySellTrans.put(key, tr.getTr_id());
 				}
-			} else if (tr.getTr_type().contains("Sell")) {
+			} else if (tr.getTr_type().equalsIgnoreCase("sell")) {
+				
+				key = tr.getClient_id() + "_" + tr.getSecurity_id() + "_"
+						+ String.valueOf(tr.getDate());
 				String findKey = key + "_Buy";
 
 				if (buySellTrans.containsKey(findKey)) {
-					int buyTransId = buySellTrans.get(findKey);
-					int sellTransId = tr.getTr_id();
+					String buyTransId = buySellTrans.get(findKey);
+					String sellTransId = tr.getTr_id();
 
 					buySellTransIds.add(buyTransId);
 					buySellTransIds.add(sellTransId);
 					buySellTrans.remove(findKey);
+
+					System.out.println("Buy Id:- " + buyTransId);
+					System.out.println("Sell Id:- " + sellTransId);
 				} else {
 					key += "_Sell";
 					buySellTrans.put(key, tr.getTr_id());
