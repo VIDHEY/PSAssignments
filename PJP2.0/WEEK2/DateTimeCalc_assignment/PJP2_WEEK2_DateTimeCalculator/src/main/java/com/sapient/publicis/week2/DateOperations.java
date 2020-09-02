@@ -11,25 +11,28 @@ public class DateOperations {
 
 	public static void getDayofDate(String dt1, DateTimeFormatter formatter) throws ParseException {
 		LocalDate date1 = LocalDate.parse(dt1, formatter);
-
-		System.out.println(date1.getDayOfWeek().toString());
+		String result = date1.getDayOfWeek().toString();
+		
+		System.out.println("The Day on " + dt1 + " is " + result);
 	}
 	public static void getMonthofDate(String dt1, DateTimeFormatter formatter) throws ParseException {
 		LocalDate date1 = LocalDate.parse(dt1, formatter);
-
-		System.out.println(date1.getMonth().toString());
+		String result = date1.getMonth().toString();
+		
+		System.out.println("The Month of the Date " + dt1 + " is " + result);
 	}
 	public static void getWeekNumber(String dt1, DateTimeFormatter formatter) throws ParseException {
 		LocalDate date1 = LocalDate.parse(dt1, formatter);
 
 		TemporalField woy = WeekFields.of(Locale.getDefault()).weekOfWeekBasedYear();
 		int weekNumber = date1.get(woy);
-		System.out.println(weekNumber);
+		System.out.println("Weeknumber of Date " + date1 + " is " + weekNumber);
 	}
 	public static void getYear(String dt1, DateTimeFormatter formatter) throws ParseException {
 		LocalDate date1 = LocalDate.parse(dt1, formatter);
-
-		System.out.println(date1.getYear());
+		int result = date1.getYear();
+		
+		System.out.println("The Year of the Date " + dt1 + " is " + result);
 	}
 	public static void subtractDates(String dt1, String dt2, DateTimeFormatter formatter) throws ParseException {
 		LocalDate date1 = LocalDate.parse(dt1, formatter);
@@ -37,56 +40,51 @@ public class DateOperations {
 
 		Period diff = Period.between(date1, date2);
 
-		System.out.printf("Difference is %d years, %d months and %d days old", diff.getYears(), diff.getMonths(),
-				diff.getDays());
+		System.out.println("Difference between " + dt1 +" and " + dt2 + " is " + diff.getYears() + " years, " + diff.getMonths() + " months and " + diff.getDays() + " days.");
 	}
 
 	public static void addWeeks(String dt1, int nw, DateTimeFormatter formatter) throws ParseException {
 		LocalDate date1 = LocalDate.parse(dt1, formatter);
-
-		date1 = date1.plusWeeks(nw);
-		System.out.println(date1);
+		LocalDate result = date1.plusWeeks(nw);
+		
+		System.out.println("Date after " + nw + " Weeks of " + date1 + " :- " + result);
 
 	}
 
 	public static void addDays(String dt1, int nd, DateTimeFormatter formatter) throws ParseException {
 		LocalDate date1 = LocalDate.parse(dt1, formatter);
-
-		date1 = date1.plusDays(nd);
-		System.out.println(date1);
-
+		LocalDate result = date1.plusDays(nd);
+		
+		System.out.println("Date after " + nd + " Days of " + date1 + " :- " + result);
 	}
 
 	public static void addMonths(String dt1, int nm, DateTimeFormatter formatter) throws ParseException {
 		LocalDate date1 = LocalDate.parse(dt1, formatter);
-
-		date1 = date1.plusMonths(nm);
-		System.out.println(date1);
+		LocalDate result = date1.plusMonths(nm);
+		
+		System.out.println("Date after " + nm + " Months of " + date1 + " :- " + result);
 
 	}
 
 	public static void subtractWeeks(String dt1, int nw, DateTimeFormatter formatter) throws ParseException {
 		LocalDate date1 = LocalDate.parse(dt1, formatter);
-
-		date1 = date1.minusWeeks(nw);
-		System.out.println(date1);
+		LocalDate result = date1.minusWeeks(nw);
+		
+		System.out.println("Date Before " + nw + " Weeks of " + date1 + " :- " + result);
 
 	}
 
 	public static void subtractDays(String dt1, int nd, DateTimeFormatter formatter) throws ParseException {
 		LocalDate date1 = LocalDate.parse(dt1, formatter);
-
-		date1 = date1.minusDays(nd);
-		System.out.println(date1);
-
+		LocalDate result = date1.minusDays(nd);
+		
+		System.out.println("Date Before " + nd + " Days of " + date1 + " :- " + result);
 	}
 
 	public static void subtractMonths(String dt1, int nm, DateTimeFormatter formatter) throws ParseException {
 		LocalDate date1 = LocalDate.parse(dt1, formatter);
-
-		date1 = date1.minusMonths(nm);
-		System.out.println(date1);
-
+		LocalDate result = date1.minusMonths(nm);
+		
+		System.out.println("Date Before " + nm + " Months of " + date1 + " :- " + result);
 	}
-
 }
