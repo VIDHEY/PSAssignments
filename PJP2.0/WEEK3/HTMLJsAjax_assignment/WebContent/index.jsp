@@ -14,8 +14,8 @@
 	<br>
 	<br>
 	<ul class="opeList">
-		<li><a href="">Determine the Day of the Week of a Date</a></li>
-		<li><a href="">Determine the Week number of a Date</a></li>
+		<li><a href="dayOfWeek.jsp">Determine the Day of the Week of a Date</a></li>
+		<li><a href="weekOfYear.jsp">Determine the Week number of a Date</a></li>
 	</ul>
 	<br>
 	<ul class=opeList>

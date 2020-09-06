@@ -23,8 +23,8 @@ public class subtractNDays extends HttpServlet {
 
 		dt = dt.minusDays(Integer.parseInt(numOfDays));
 		
-		request.setAttribute("opDate", dt);
-        request.getRequestDispatcher("/subtractNDays.jsp").forward(request, response);
+		response.setContentType("text/html;charset=UTF-8");
+		response.getWriter().write(dt.toString());
 		
 	}
 

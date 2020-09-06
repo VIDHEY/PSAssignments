@@ -4,13 +4,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>DateTime Calculator</title>
 <link rel="stylesheet" type="text/css" href="css/inputType1.css">
 </head>
 <body>
 	<h1>Add N Days to an Input Date</h1>
 	<hr>
-	<form class="ipForm" name="addDays" id="addDays">
+	<form class="ipForm" id="addDays">
 		<div class="ipField">
 			<label for="date">Input Date:- </label> <input id="date" name="date"
 				type="date" min="1979-12-31" max="2020-01-02" required> <br>

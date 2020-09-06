@@ -25,9 +25,6 @@ public class addNDays extends HttpServlet {
 		
 		response.setContentType("text/html;charset=UTF-8");
 		response.getWriter().write(dt.toString());
-//		request.setAttribute("opDate", dt);
-//        request.getRequestDispatcher("/addNDays.jsp").forward(request, response);
-//		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

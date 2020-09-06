@@ -20,12 +20,11 @@ public class addNDays extends HttpServlet {
 		String numOfDays = request.getParameter("numOfDays");
 		
 		LocalDate dt = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-
+		System.out.println(date);
 		dt = dt.plusDays(Integer.parseInt(numOfDays));
 		
-		request.setAttribute("opDate", dt);
-        request.getRequestDispatcher("/addNDays.jsp").forward(request, response);
-		
+		response.setContentType("text/html;charset=UTF-8");
+		response.getWriter().write(dt.toString());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)

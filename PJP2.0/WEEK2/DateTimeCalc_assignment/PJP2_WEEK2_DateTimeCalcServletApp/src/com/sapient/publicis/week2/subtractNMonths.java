@@ -21,10 +21,10 @@ public class subtractNMonths extends HttpServlet {
 		
 		LocalDate dt = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-		dt = dt.plusMonths(Integer.parseInt(numOfMonths));
+		dt = dt.minusMonths(Integer.parseInt(numOfMonths));
 		
-		request.setAttribute("opDate", dt);
-        request.getRequestDispatcher("/subtractNMonths.jsp").forward(request, response);
+		response.setContentType("text/html;charset=UTF-8");
+		response.getWriter().write(dt.toString());
 		
 	}
 

@@ -22,9 +22,9 @@ public class addNMonths extends HttpServlet {
 
 		dt = dt.plusMonths(Integer.parseInt(numOfMonths));
 		
-		request.setAttribute("opDate", dt);
-        request.getRequestDispatcher("/addNMonths.jsp").forward(request, response);
-	}
+		response.setContentType("text/html;charset=UTF-8");
+		response.getWriter().write(dt.toString());
+		}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

@@ -23,9 +23,8 @@ public class subtractNWeeks extends HttpServlet {
 
 		dt = dt.minusWeeks(Integer.parseInt(numOfWeeks));
 		
-		request.setAttribute("opDate", dt);
-        request.getRequestDispatcher("/subtractNWeeks.jsp").forward(request, response);
-		
+		response.setContentType("text/html;charset=UTF-8");
+		response.getWriter().write(dt.toString());
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
