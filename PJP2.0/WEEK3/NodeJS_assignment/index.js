@@ -18,7 +18,7 @@ app.get('/', (req, res) => {
   res.render('index');
 });
 
-app.get('/addNDays', function (req, res) {
+app.get('/addNDays', (req, res) => {
   if (req.query.date) {
     var ipDate = req.query.date;
     var days = req.query.numOfDays;
@@ -35,7 +35,7 @@ app.get('/addNDays', function (req, res) {
     res.render('addNDays');
 });
 
-app.get('/addNMonths', function (req, res) {
+app.get('/addNMonths', (req, res) => {
   if (req.query.date) {
     var ipDate = req.query.date;
     var months = req.query.numOfMonths;
@@ -52,7 +52,7 @@ app.get('/addNMonths', function (req, res) {
     res.render('addNMonths');
 });
 
-app.get('/addNWeeks', function (req, res) {
+app.get('/addNWeeks', (req, res) => {
   if (req.query.date) {
     var ipDate = req.query.date;
     var weeks = req.query.numOfWeeks;
@@ -69,7 +69,7 @@ app.get('/addNWeeks', function (req, res) {
     res.render('addNWeeks');
 });
 
-app.get('/subtractNDays', function (req, res) {
+app.get('/subtractNDays', (req, res) => {
   if (req.query.date) {
     var ipDate = req.query.date;
     var days = req.query.numOfDays;
@@ -86,7 +86,7 @@ app.get('/subtractNDays', function (req, res) {
     res.render('subtractNDays');
 });
 
-app.get('/subtractNMonths', function (req, res) {
+app.get('/subtractNMonths', (req, res) => {
   if (req.query.date) {
     var ipDate = req.query.date;
     var months = req.query.numOfMonths;
@@ -103,7 +103,7 @@ app.get('/subtractNMonths', function (req, res) {
     res.render('subtractNMonths');
 });
 
-app.get('/subtractNWeeks', function (req, res) {
+app.get('/subtractNWeeks', (req, res) => {
   if (req.query.date) {
     var ipDate = req.query.date;
     var weeks = req.query.numOfWeeks;
@@ -120,7 +120,7 @@ app.get('/subtractNWeeks', function (req, res) {
     res.render('subtractNWeeks');
 });
 
-app.get('/dayOfWeek', function (req, res) {
+app.get('/dayOfWeek', (req, res) => {
   if (req.query.date) {
     var ipDate = req.query.date;
     var result = moment(ipDate, "YYYY-MM-DD").format('dddd');
@@ -134,7 +134,7 @@ app.get('/dayOfWeek', function (req, res) {
 });
 
 
-app.get('/weeknumOfYear', function (req, res) {
+app.get('/weeknumOfYear', (req, res) => {
   if (req.query.date) {
     var ipDate = req.query.date;
     var result = moment(ipDate, "YYYY-MM-DD").format('w');
